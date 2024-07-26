@@ -1,0 +1,106 @@
+
+
+
+h1 {
+    color : #8D493A;
+    border-style: double  ;
+    border-color: #D0B8A8;
+    background-color:#EBDECEFF ;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: auto;
+}
+
+h2{
+    color : #8D493A;
+    border-color: #D0B8A8;
+    background-color:#EBDECEFF ;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+button {
+    color : #E06C9F ;
+    background-color:#EBDECEFF ;
+
+    border-color: #D0B8A8;
+    
+    text-decoration-color: #E06C9F;
+    font-size:1.5rem;
+    width : 8rem ;
+    height : 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 1rem 1rem;
+
+    
+}
+body {
+
+    background-color: #F8EDE3;
+}
+
+img{
+    border-style: solid ;
+    border-color: #D0B8A8;
+
+    width: 50rem;
+    height: 30rem;
+}
+
+/*a {
+    color : #E06C9F ;
+    border-style: outset  ;
+    border-color: #D0B8A8;
+    margin:2rem 5rem;
+    padding: 1.5rem 3rem;
+}
+
+.search {
+
+    color: black ;
+    background: white;
+    border-color: black;
+    margin: 1rem;
+    padding: 1rem;
+}
+*/
+
+.back{
+    color : #E06C9F ;
+    background-color:#EBDECEFF ;
+
+    border-color: #D0B8A8;
+
+    text-decoration-color: #E06C9F;
+    font-size:1.5rem;
+    width : 8rem ;
+    height : 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 1rem 1rem;
+}
+
+p{
+    border-style: solid ;
+    border-color: #D0B8A8;
+
+    font-size: 1.5rem;
+}
+
+text{
+    height : 5rem ;
+
+}
+
+/*color : #E06C9F ;
+background-color:#EBDECEFF ;
+border-style: outset;
+border-color: #D0B8A8;
+
+font-size:1.5rem;
+font-family: 'Times New Roman', Times, serif;
+
+width : 5rem ;
+height : 2.5rem;
+text-align: right;
+padding: 0.5rem 0rem 0rem 0rem ;
+*/
+
