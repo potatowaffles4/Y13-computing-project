@@ -27,7 +27,7 @@ function App() {
     <div>
       <div class = "search">
         <form onSubmit={handleSubmit}>
-          <label>Enter your name:
+          <label>Search:
             <input id="searchText" type="text" />
           </label>
           <input type="submit" />

@@ -1,23 +1,23 @@
 h1 {
-  color : #8D493A;
+  color : white;
   border-style: double  ;
-  border-color: #D0B8A8;
-  background-color:#EBDECEFF ;
+  border-color: white;
+  background-color:#001447ff ;
   font-family: 'Times New Roman', Times, serif;
   text-align: auto;
 }
 
 h2{
-  color : #8D493A;
-  border-color: #D0B8A8;
-  background-color:#EBDECEFF ;
+  color : white;
+  border-color: white;
+  background-color:#001447ff ;
   font-family: 'Times New Roman', Times, serif;
   
 }
 
 button {
   color : #E06C9F ;
-  background-color:#EBDECEFF ;
+  background-color:white ;
 
   border-color: #D0B8A8;
   
@@ -32,12 +32,12 @@ button {
 }
 body {
 
-  background-color: #F8EDE3;
+  background-color: white;
 }
 
 img{
   border-style: solid ;
-  border-color: #D0B8A8;
+  border-color: white;
 
   width: 50rem;
   height: 30rem;
