@@ -1,14 +1,20 @@
 [
     {
         "id": "1",
-        "artist": "Monet",
+        "artist": {
+            "id": "3",
+            "name": "Claude Monet"
+        },
         "title": "Water Lillies",
         "year": "1920",
         "tags": ["abc", "ghi"]
     },
     {
         "id": "2",
-        "artist": "Van Gogh",
+        "artist": {
+            "id": "4",
+            "name": "Vincent Van Gogh"
+        },
         "title": "Starry Night",
         "year": "1889",
         "tags": ["def", "ghi"]
