@@ -54,3 +54,28 @@ async def artwork_get(id: str = ""):
             return artwork
 
     return {}
+
+
+@app.get("/artist/{id}")
+async def artwork_get(id: str = ""):
+    artists = [
+        {
+            "id": "1",
+            "name": "Pablo Picasso",
+            "country": "Spain",
+            "image_url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbirthdaypedia.com%2Fi%2Ft%2Fpablo-picasso.jpg&f=1&nofb=1&ipt=2fd3ff6000516c46535a0ec7c94dac5d97afbb40b56594b55fdd9e44ca44e41a&ipo=images"
+        },
+        {
+            "id": "2",
+            "name": "David Hockney",
+            "country": "United Kingdom",
+            "image_url": "https://observer.com/wp-content/uploads/sites/2/2018/04/gettyimages-615380796-e1524080376439.jpg"
+        }
+    ]
+
+    for artist in artists:
+        print(artist)
+        if id in artist['id']:
+            return artist
+
+    return {}

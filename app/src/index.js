@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './Home'
 import Layout from './Layout'
 import Artwork from './Artwork'
+import Artist from './Artist'
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +17,9 @@ root.render(
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/artwork/:id" element={<Artwork />} />
+          <Route path="/artist/:id" element={<Artist />} />
+
+          {/* //todo */}
         </Route>
       </Routes>
     </BrowserRouter>
