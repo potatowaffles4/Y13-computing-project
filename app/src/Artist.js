@@ -28,7 +28,7 @@ function Artist() {
         <div>id {id}</div>
         <div>Name: {artist.name}</div>
         <div>country: {artist.country}</div>
-        <div>image_url: {artist.image_url}</div>
+        <img src={artist.image_url} />
     </div>
 }
 
