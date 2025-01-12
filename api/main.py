@@ -1,3 +1,4 @@
+import json
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -15,27 +16,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-artworks = [
-{
-    "id": "1",
-    "artist": "Monet",
-    "title": "Water Lillies",
-    "year": "1920",
-    "tags": ["abc", "ghi"]
-},
-{
-    "id": "2",
-    "artist": "Van Gogh",
-    "title": "Starry Night",
-    "year": "1889",
-    "tags": ["def", "ghi"]
-}
-]
+def load_artworks():
+    db = open("./art-database.json")
+    artworks = json.loads(db.read())
+    print("artworks", artworks)
+    return artworks
 
 @app.get("/art/search")
 async def art_search(keywords: str = ""):
     keywords = keywords.split(",")
 
+    artworks = load_artworks()
     items = []
 
     for keyword in keywords:
@@ -53,9 +44,9 @@ async def art_search(keywords: str = ""):
         }
     }
 
-@app.get("/artwork")
+@app.get("/artwork/{id}")
 async def artwork_get(id: str = ""):
-    items = []
+    artworks = load_artworks()
 
     for artwork in artworks:
         print(artwork)

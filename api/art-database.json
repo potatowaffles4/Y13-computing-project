@@ -1,0 +1,16 @@
+[
+    {
+        "id": "1",
+        "artist": "Monet",
+        "title": "Water Lillies",
+        "year": "1920",
+        "tags": ["abc", "ghi"]
+    },
+    {
+        "id": "2",
+        "artist": "Van Gogh",
+        "title": "Starry Night",
+        "year": "1889",
+        "tags": ["def", "ghi"]
+    }
+]
