@@ -5,8 +5,10 @@ function Layout() {
     return (
         <div>
             <h1>Gallery of Art</h1>
-            <Link to="/">Home</Link>
-            <h2>this is a website to find art and artists</h2>
+            <div className="home-buttons">
+                <Link className="navigation-link" to="/">Home</Link>
+                <Link className="navigation-link" to="/add">Add</Link>
+            </div>
             <div className="content-area">
                 <Outlet />
             </div>

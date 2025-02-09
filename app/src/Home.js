@@ -60,7 +60,7 @@ function Home() {
     }
 
     return <div>
-        <div class = "search">
+        <div className = "search">
             <form onSubmit={handleSubmit}>
                 <label>Search:
                 <input id="searchText" type="text" />

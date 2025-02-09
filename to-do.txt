@@ -1,0 +1,5 @@
+w/c 10/02
+
+- Add all API functions for Artist and Artwork
+- Add a form to add Artwork
+- Think about things to try that will help with the exam

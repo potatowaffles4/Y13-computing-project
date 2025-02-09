@@ -1,6 +1,8 @@
 import json
+from uuid import uuid4
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -16,14 +18,41 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+class Artist(BaseModel):
+    name: str
+    yearBorn: str
+    whereBorn: str
+    live: str
+    knownFor: str
+    yearDied: str
+    artPeriod: str
+
 def load_artworks():
     db = open("./art-database.json")
     artworks = json.loads(db.read())
-    print("artworks", artworks)
+    db.close()
+
+    print(f"artworks: {json.dumps(artworks, indent=4)}")
     return artworks
 
+def load_artists():
+    db = open("./artist-database.json")
+    artists = json.loads(db.read())
+    db.close()
+
+    print(f"artists: {json.dumps(artists, indent=4)}")
+    return artists
+
+def save_artist(artist):
+    artists = load_artists()
+    artists.append(artist)
+
+    db = open("./artist-database.json", "w")
+    db.write(json.dumps(artists, indent=4))
+    db.close()
+
 @app.get("/art/search")
-async def art_search(keywords: str = ""):
+async def get_art_search(keywords: str = ""):
     keywords = keywords.split(",")
 
     artworks = load_artworks()
@@ -45,7 +74,7 @@ async def art_search(keywords: str = ""):
     }
 
 @app.get("/artwork/{id}")
-async def artwork_get(id: str = ""):
+async def get_artwork(id: str = ""):
     artworks = load_artworks()
 
     for artwork in artworks:
@@ -57,7 +86,7 @@ async def artwork_get(id: str = ""):
 
 
 @app.get("/artist/{id}")
-async def artwork_get(id: str = ""):
+async def get_artist(id: str = ""):
     artists = [
         {
             "id": "1",
@@ -91,3 +120,12 @@ async def artwork_get(id: str = ""):
             return artist
 
     return {}
+
+@app.post("/artist")
+async def post_artist(artist: Artist):
+    artist_with_id = artist.model_dump() | { "id": str(uuid4()) }
+    print(f"artist: {json.dumps(artist, indent=4)}")
+    
+    save_artist(artist_with_id)
+    return {"ok": True}
+

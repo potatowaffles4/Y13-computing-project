@@ -7,6 +7,7 @@ import Home from './Home'
 import Layout from './Layout'
 import Artwork from './Artwork'
 import Artist from './Artist'
+import Add from './Add'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,6 +19,7 @@ root.render(
           <Route index element={<Home />} />
           <Route path="/artwork/:id" element={<Artwork />} />
           <Route path="/artist/:id" element={<Artist />} />
+          <Route path="/add" element={<Add />} />
 
           {/* //todo */}
         </Route>
