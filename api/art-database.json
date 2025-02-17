@@ -13,7 +13,8 @@
         "id": "2",
         "artist": {
             "id": "4",
-            "name": "Vincent Van Gogh"
+            "name": "Vincent Van Gogh",
+            "tags":""
         },
         "title": "Starry Night",
         "year": "1889",

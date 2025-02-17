@@ -92,7 +92,6 @@ img{
   font-size:1.5rem;
   width : 8rem ;
   height : 2.5rem;
-  font-family: 'Abril Fatface';
   margin: 1rem 1rem;
 }
 
@@ -121,6 +120,8 @@ text{
 }
 
 .navigation-link  {
+  color:#001447 ;
+  font-weight:bold;
   background-color: lightgray;
   border: 0.25rem solid white;
   margin: 0.5rem 1rem;

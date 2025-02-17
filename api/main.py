@@ -56,19 +56,29 @@ async def get_art_search(keywords: str = ""):
     keywords = keywords.split(",")
 
     artworks = load_artworks()
+    artists = load_artists()
     items = []
 
     for keyword in keywords:
         for artwork in artworks:
             print(artwork)
             if keyword in artwork['tags']:
-                items.append(artwork)
+                found = artwork
+                found["type"] = "artwork"
+                items.append(found)
+
+        for artist in artists:
+            print(artist)
+            if keyword in artist['tags']:
+                found = artist
+                found["type"] = "artist"
+                items.append(found)
 
     return {
         "message": "hello world",
         "keywords": keywords,
         "results": {
-            "length": 2,
+            "length": len(items),
             "items": items,
         }
     }
