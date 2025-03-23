@@ -38,7 +38,7 @@ function AddArtist() {
 
     ]
     const toneTagControls = toneTags.map(({displayName, tagName}) => {
-        return <div>
+        return <div className = "tagItem">
             <label>{displayName}</label>
             <input id={tagName} type="checkbox" onChange={event => setTag(tagName, event.target.checked)}/>
         </div>
@@ -84,42 +84,42 @@ function AddArtist() {
         <div className = "search">
             <form onSubmit={handleSubmit}>
                 <div className="input-block">
-                    <label>First name:
+                    <label><p>First name:</p>
                     <input id="Fname" type="text" onChange={event => setFName(event.target.value)} /></label>
                 </div>
                 <div>
-                    <label>Last name:
+                    <label><p>Last name:</p>
                     <input id="Lname" type="text" onChange={event => setLName(event.target.value)} /></label>
                 </div>
 
                 <div className="input-block">
-                    <label>When they were born:
+                    <label><p>When they were born:</p>
                     <input id="yearBorn" type="date" onChange={event => setYearBorn(event.target.value)}/></label>
                 </div>
 
                 <div className="input-block">
-                    <label>Where they were born:
+                    <label><p>Where they were born:</p>
                     <input id="whereBorn" type="text" onChange={event => setWhereBorn(event.target.value)}/></label>
                 </div>
 
                 <div className="input-block">
-                    <label>Where they live/lived:
+                    <label><p>Where they live/lived:</p>
                     <input id=":live" type="text" onChange={event => setLive(event.target.value)}/></label>
                 </div>
 
                 <div className="input-block">
-                    <label>What they were known for/ their most popular work:
+                    <label><p>What they were known for/ their most popular work:</p>
                     <input id="knownFor" type="text" onChange={event => setKnownFor(event.target.value)}/></label>
                 </div>
 
                 <div className="input-block">
-                    <label>When they died:
+                    <label><p>When they died:</p>
                     <input id="yearDied" type="date" onChange={event => setYearDied(event.target.value)}/></label>
                 </div>
 
                 <div className="input-block">
-                    <label for="period">Art period:
-                        <select name="period" id = "artPeriod" onChange={event => setArtPeriod(event.target.value)}>
+                    <label for="period"><p>Art period:</p>
+                        <select className = "" name="period" id = "artPeriod" onChange={event => setArtPeriod(event.target.value)}>
                             <option value = "artPeriod"> ----</option>
                             <option value = "Prehistoric">Prehistoric art (~40,000–4,000 B.C.)</option>
                             <option value = "Ancient">Ancient art (4,000 B.C.–A.D. 400)</option>
@@ -147,13 +147,13 @@ function AddArtist() {
                             <option value = "Conceptual">Conceptual Art (1960s–1970s)</option>
                             <option value = "Contemporary">Contemporary Art (1970–present)</option>
                         </select>
-                        <input id="artPeriod" type="text" onChange={event => setArtPeriod(event.target.value)}/>
+                       
                     </label>
   
                 </div>
                 <div className="input-block">
                     
-                    <label><u>Tone</u></label>
+                    <p><u>Tone</u></p>
                     <br />
 
                     {toneTagControls}
