@@ -19,7 +19,8 @@ app.add_middleware(
 )
 
 class Artist(BaseModel):
-    name: str
+    fName:str
+    lName: str
     yearBorn: str
     whereBorn: str
     live: str
@@ -134,7 +135,7 @@ async def get_artist(id: str = ""):
 @app.post("/artist")
 async def post_artist(artist: Artist):
     artist_with_id = artist.model_dump() | { "id": str(uuid4()) }
-    print(f"artist: {json.dumps(artist, indent=4)}")
+    print(f"artist: {json.dumps(artist_with_id, indent=4)}")
     
     save_artist(artist_with_id)
     return {"ok": True}

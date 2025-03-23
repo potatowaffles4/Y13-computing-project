@@ -2,22 +2,23 @@ import './App.css';
 import { useState } from 'react'
 import SearchResultItem from "./SearchResultItem"
 
-function Add() {
+function AddArtist() {
     // const [results, setResults] = useState()
     const [name, setName] = useState()
-    const [yearBorn, setYearBorn] = useState()
-    const [whereBorn, setWhereBorn] = useState()
-    const [live, setLive] = useState()
-    const [knownFor, setKnownFor] = useState()
-    const [yearDied, setYearDied] = useState()
-    const [artPeriod, setArtPeriod] = useState()
+    const [artwork, setArtwork] = useState
+    const [yearMade, setYearMade] = useState()
+
 
 
     function handleSubmit(event) {
       event.preventDefault()
       console.log({event})
-      const searchTerm = event.target[0].value
-      console.log({searchTerm})
+      const body = {
+            name,
+            artwork,
+            yearMade
+        }
+        console.log({body})
   
       fetch(`http://localhost:8000/artist`,
         {
@@ -25,15 +26,7 @@ function Add() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                name,
-                yearBorn,
-                whereBorn,
-                live,
-                knownFor,
-                yearDied,
-                artPeriod,
-            })
+            body: JSON.stringify(body)
         }
       )
         .then(result => {
@@ -46,19 +39,18 @@ function Add() {
         .catch(err => console.error(err))
     }
 
-    console.log({name})
 
     return <div>
         <div className = "search">
             <form onSubmit={handleSubmit}>
                 <div className="input-block">
-                    <label>Artist name:
+                    <label>Name:
                     <input id="name" type="text" onChange={event => setName(event.target.value)} /></label>
                 </div>
-
+               
                 <div className="input-block">
-                    <label>Year they were born:
-                    <input id="yearBorn" type="text" onChange={event => setYearBorn(event.target.value)}/></label>
+                    <label>When it was made:
+                    <input id="yearBorn" type="date" onChange={event => setYearBorn(event.target.value)}/></label>
                 </div>
 
                 <div className="input-block">
@@ -78,13 +70,10 @@ function Add() {
 
                 <div className="input-block">
                     <label>When they died:
-                    <input id="yearDied" type="text" onChange={event => setYearDied(event.target.value)}/></label>
+                    <input id="yearDied" type="date" onChange={event => setYearDied(event.target.value)}/></label>
                 </div>
 
-                <div className="input-block">
-                    <label>Art period:
-                    <input id="artPeriod" type="text" onChange={event => setArtPeriod(event.target.value)}/></label>
-                </div>
+                
 
 
                 <input type="submit" />
@@ -94,4 +83,4 @@ function Add() {
     </div>
 }
 
-export default Add
+export default AddArtist

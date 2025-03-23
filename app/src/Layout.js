@@ -7,7 +7,7 @@ function Layout() {
             <h1>Gallery of Art</h1>
             <div className="home-buttons">
                 <Link className="navigation-link" to="/">Home</Link>
-                <Link className="navigation-link" to="/add">Add</Link>
+                <Link className="navigation-link" to="/add-artist">Add Artist</Link>
             </div>
             <div className="content-area">
                 <Outlet />

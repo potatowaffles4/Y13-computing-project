@@ -1,6 +1,7 @@
 [
     {
-        "name": "ab",
+        "fName": "ab",
+        "lName": "c",
         "yearBorn": "de",
         "whereBorn": "f",
         "live": "gh",
@@ -8,6 +9,19 @@
         "yearDied": "kl",
         "artPeriod": "mn",
         "id": "7f9481fa-665c-44de-bf87-10e76f947090",
-        "tags":["a"]
+        "tags": [
+            "a"
+        ]
+    },
+    {
+        "fName": "Claude",
+        "lName": "Monet",
+        "yearBorn": "2025-03-06",
+        "whereBorn": "France",
+        "live": "France",
+        "knownFor": "Waterlillies",
+        "yearDied": "1964-04-30",
+        "artPeriod": "Impressionism",
+        "id": "c556858c-6b43-41d2-8e58-2b2e76613985"
     }
 ]
