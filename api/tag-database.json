@@ -1,0 +1,26 @@
+[
+    {
+        "name": "tone-contrasting",
+        "artistId": "55a32821-63f8-47a0-9365-2d3aba188ea0",
+        "artworkId": null,
+        "id": "2b536de0-00dd-439b-a7f2-ff14961b465d"
+    },
+    {
+        "name": "tone-mid-tone",
+        "artistId": "55a32821-63f8-47a0-9365-2d3aba188ea0",
+        "artworkId": null,
+        "id": "b662f960-f026-4c66-ab8b-24f815c0134c"
+    },
+    {
+        "name": "tone-dark",
+        "artistId": "bcf393e3-4398-478d-9124-679a28ad19a1",
+        "artworkId": null,
+        "id": "55ec5ca3-85ef-4f65-82f7-7f147e00f4f4"
+    },
+    {
+        "name": "baroque",
+        "artistId": "bcf393e3-4398-478d-9124-679a28ad19a1",
+        "artworkId": null,
+        "id": "d2e0d473-c947-41e5-ae8f-3c5835fe96dc"
+    }
+]

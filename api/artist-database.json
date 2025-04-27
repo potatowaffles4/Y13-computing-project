@@ -9,9 +9,7 @@
         "yearDied": "kl",
         "artPeriod": "mn",
         "id": "7f9481fa-665c-44de-bf87-10e76f947090",
-        "tags": [
-            "a"
-        ]
+        "imageUrl": "https://coin-images.coingecko.com/coins/images/53870/large/cat_icon_200.jpeg?1737615927"
     },
     {
         "fName": "Claude",
@@ -22,6 +20,43 @@
         "knownFor": "Waterlillies",
         "yearDied": "1964-04-30",
         "artPeriod": "Impressionism",
-        "id": "c556858c-6b43-41d2-8e58-2b2e76613985"
+        "id": "c556858c-6b43-41d2-8e58-2b2e76613985",
+        "imageUrl": "https://www.normandythenandnow.com/wp-content/uploads/2017/11/self-portrait-with-a-beret-1886-Claude-Monet.jpg"
+    },
+    {
+        "fName": "Vincent",
+        "lName": "Van Gogh",
+        "yearBorn": "1853-03-30",
+        "whereBorn": "Netherlands",
+        "live": "France",
+        "knownFor": "Starry Night",
+        "yearDied": "1890-07-29",
+        "artPeriod": "PImpressionism",
+        "imageUrl": "https://www.vangoghmuseum.nl/assets/f9a7a187-484e-4821-b84a-79c836109029?w=1280&h=720&c=12f8ae08a908d9261f58a6bb1bfaa67e8daf061b56752678819c8c241a881bbe",
+        "id": "08d34b5a-4f69-4f78-9da0-0f47b1c65941"
+    },
+    {
+        "fName": "Leonardo",
+        "lName": "di ser Piero da Vinci",
+        "yearBorn": "1452-04-15",
+        "whereBorn": "Republic of Florence",
+        "live": "France",
+        "knownFor": "Mona Lisa",
+        "yearDied": "1519-05-02",
+        "artPeriod": "renaissance",
+        "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/portrait-of-leonardo-da-vinci-1452-1519-getty.jpg?crop=1xw:1.0xh;center,top&resize=640:*",
+        "id": "55a32821-63f8-47a0-9365-2d3aba188ea0"
+    },
+    {
+        "fName": "Rembrant",
+        "lName": "Harmenszoon van Rijn",
+        "yearBorn": "1606-07-15",
+        "whereBorn": "Netherlands",
+        "live": "Netherlands",
+        "knownFor": "The Anatomy Lesson of Dr. Nicolaes Tulp",
+        "yearDied": "1669-10-04",
+        "artPeriod": "baroque",
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg/250px-Rembrandt_van_Rijn_-_Self-Portrait_-_Google_Art_Project.jpg",
+        "id": "bcf393e3-4398-478d-9124-679a28ad19a1"
     }
 ]

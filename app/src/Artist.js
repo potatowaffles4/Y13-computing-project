@@ -25,10 +25,10 @@ function Artist() {
     }
 
     return <div>
-        <div>id {id}</div>
-        <div>Name: {artist.name}</div>
-        <div>country: {artist.country}</div>
-        <img src={artist.image_url} />
+        {/* <div>id {id}</div> */}
+        <div>Name: {artist.fName} {artist.lName}</div>
+        <div>Where Born: {artist.whereBorn}</div>
+        <img src={artist.imageUrl} className="artist-image" />
     </div>
 }
 

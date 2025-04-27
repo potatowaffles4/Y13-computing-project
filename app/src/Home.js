@@ -22,33 +22,6 @@ function Home() {
         .catch(err => console.error(err))
     }
 
-    /*
-    results will contain something like this, i.e. as per 'artworks' from main.py
-
-    [
-    {
-        "id": "1",
-        "artist": "Monet",
-        "title": "Water Lillies",
-        "year": "1920",
-        "tags": ["abc", "ghi"]
-    },
-    {
-        "id": "2",
-        "artist": "Van Gogh",
-        "title": "Starry Night",
-        "year": "1889",
-        "tags": ["def", "ghi"]
-    }
-    ]
-
-    results.map takes each element (artwork), and creates a React component <SearchResultItem />
-
-    As a result, we now have an array of <SearchResultItem />, one for each artwork
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
-    */
-
     let resultsOutput
 
     if (results === undefined) {

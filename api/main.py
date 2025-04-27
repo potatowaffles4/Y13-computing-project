@@ -3,6 +3,7 @@ from uuid import uuid4
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from typing import Optional
 
 app = FastAPI()
 
@@ -18,6 +19,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# defines the layout of input data for artist
 class Artist(BaseModel):
     fName:str
     lName: str
@@ -27,15 +29,24 @@ class Artist(BaseModel):
     knownFor: str
     yearDied: str
     artPeriod: str
+    imageUrl: str
 
-def load_artworks():
-    db = open("./art-database.json")
-    artworks = json.loads(db.read())
-    db.close()
+# defines the layout of input data for a tag
+class Tag(BaseModel):
+    name:str
+    artistId: Optional[str] = None
+    artworkId: Optional[str] = None
 
-    print(f"artworks: {json.dumps(artworks, indent=4)}")
-    return artworks
+# loads the artwork database so it can be read when a search happens 
+# def load_artworks():
+#     db = open("./art-database.json")
+#     artworks = json.loads(db.read())
+#     db.close()
 
+#     print(f"artworks: {json.dumps(artworks, indent=4)}")
+#     return artworks
+
+# loads the art database so it can be read when a search happens 
 def load_artists():
     db = open("./artist-database.json")
     artists = json.loads(db.read())
@@ -44,6 +55,15 @@ def load_artists():
     print(f"artists: {json.dumps(artists, indent=4)}")
     return artists
 
+def load_tags():
+    db = open("./tag-database.json")
+    tags = json.loads(db.read())
+    db.close()
+
+    print(f"tags: {json.dumps(tags, indent=4)}")
+    return tags
+
+#adds artist to artist, opens the database and writes in the artist information 
 def save_artist(artist):
     artists = load_artists()
     artists.append(artist)
@@ -52,31 +72,51 @@ def save_artist(artist):
     db.write(json.dumps(artists, indent=4))
     db.close()
 
+#adds tag to tag, opens the database and writes in the tag information 
+def save_tag(tag):
+    tags = load_tags()
+    tags.append(tag)
+
+    db = open("./tag-database.json", "w")
+    db.write(json.dumps(tags, indent=4))
+    db.close()
+
 @app.get("/art/search")
 async def get_art_search(keywords: str = ""):
     keywords = keywords.split(",")
 
-    artworks = load_artworks()
+    # artworks = load_artworks()
     artists = load_artists()
+    tags = load_tags()
     items = []
 
-    for keyword in keywords:
-        for artwork in artworks:
-            print(artwork)
-            if keyword in artwork['tags']:
-                found = artwork
-                found["type"] = "artwork"
-                items.append(found)
+    for k in keywords:
+        keyword = k.lower()
+        # for artwork in artworks:
+        #     print(artwork)
+        #     if keyword in artwork['tags']:
+        #         found = artwork
+        #         found["type"] = "artwork"
+        #         items.append(found)
 
         for artist in artists:
             print(artist)
-            if keyword in artist['tags']:
+            if keyword in artist["fName"].lower() or keyword in artist["lName"].lower():
                 found = artist
                 found["type"] = "artist"
                 items.append(found)
 
-    return {
-        "message": "hello world",
+        for tag in tags:
+            print(tag)
+            if keyword in tag["name"]:
+                if tag["artistId"]:
+                    for artist in artists:
+                        if tag["artistId"] == artist["id"]:
+                            found = artist
+                            found["type"] = "artist"
+                            items.append(found)
+
+    response = {
         "keywords": keywords,
         "results": {
             "length": len(items),
@@ -84,46 +124,25 @@ async def get_art_search(keywords: str = ""):
         }
     }
 
-@app.get("/artwork/{id}")
-async def get_artwork(id: str = ""):
-    artworks = load_artworks()
+    print(f"response: {response}")
 
-    for artwork in artworks:
-        print(artwork)
-        if id in artwork['id']:
-            return artwork
+    return response
 
-    return {}
+# @app.get("/artwork/{id}")
+# async def get_artwork(id: str = ""):
+#     artworks = load_artworks()
+
+#     for artwork in artworks:
+#         print(artwork)
+#         if id in artwork['id']:
+#             return artwork
+
+#     return {}
 
 
 @app.get("/artist/{id}")
 async def get_artist(id: str = ""):
-    artists = [
-        {
-            "id": "1",
-            "name": "Pablo Picasso",
-            "country": "Spain",
-            "image_url": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fbirthdaypedia.com%2Fi%2Ft%2Fpablo-picasso.jpg&f=1&nofb=1&ipt=2fd3ff6000516c46535a0ec7c94dac5d97afbb40b56594b55fdd9e44ca44e41a&ipo=images"
-        },
-        {
-            "id": "2",
-            "name": "David Hockney",
-            "country": "United Kingdom",
-            "image_url": "https://observer.com/wp-content/uploads/sites/2/2018/04/gettyimages-615380796-e1524080376439.jpg"
-        },
-        {
-            "id": "3",
-            "name": "Claude Monet",
-            "country": "France",
-            "image_url": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F3%2F33%2FClaude_Monet_1899_Nadar.jpg&f=1&nofb=1&ipt=3b88e2ea59efbbd851908f0abbd586962b6b30d0905c1d1bc9377fbe23049299&ipo=images"
-        },
-        {
-            "id": "4",
-            "name": "Vincent Van Gogh",
-            "country": "Netherlands",
-            "image_url": "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F6%2F60%2FVincent_Willem_van_Gogh_107.jpg&f=1&nofb=1&ipt=2a428db71f93544de6cf9bba3c4f1f61f9e79cd7f6b0fd12852669fafbab8c7d&ipo=images"
-        },
-    ]
+    artists = load_artists()
 
     for artist in artists:
         print(artist)
@@ -138,5 +157,18 @@ async def post_artist(artist: Artist):
     print(f"artist: {json.dumps(artist_with_id, indent=4)}")
     
     save_artist(artist_with_id)
-    return {"ok": True}
+    return {
+        "ok": True,
+        "artist": artist_with_id,
+    }
 
+@app.post("/tag")
+async def post_tag(tag: Tag):
+    tag_with_id = tag.model_dump() | { "id": str(uuid4()) }
+    print(f"tag: {json.dumps(tag_with_id, indent=4)}")
+
+    save_tag(tag_with_id)
+    return {
+        "ok": True,
+        "tag": tag_with_id,
+    }

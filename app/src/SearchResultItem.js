@@ -1,10 +1,20 @@
 import { Link } from 'react-router-dom'
 
 function SearchResultItem(props) {
-    return <div key={props.id} className="search-result">
-        {/* Artist: <Link to={`/artist/${props.artist.id}`}>{props.artist.name}</Link><br /> */}
-        Title: <Link to={`/artwork/${props.id}`}>{props.title}</Link><br />
-    </div>
+    const type = props?.type
+
+    let tile = <div key={props.id} className="search-result">The type of result is not recognised ({type}/{props.id})</div>
+
+    console.log({props})
+
+    if (type === "artist") {
+        tile = <div key={props.id} className="search-result">
+            <img src={props.imageUrl} className="thumbnail-image"></img>
+            Artist: <Link to={`/artist/${props.id}`}>{props.fName} {props.lName}</Link><br />
+        </div>
+    }
+
+    return tile
 }
 
 export default SearchResultItem
