@@ -24,10 +24,19 @@ function Artist() {
         return <div>Loading...</div>
     }
 
-    return <div>
+    return <div >
         {/* <div>id {id}</div> */}
-        <div>Name: {artist.fName} {artist.lName}</div>
-        <div>Where Born: {artist.whereBorn}</div>
+        <div className='artistTextName'>{artist.fName} {artist.lName}</div>
+        <div className='artistText'>
+            <div >{artist.lName} was born in {artist.whereBorn} </div>
+            <div >They were born in {artist.yearBorn}</div>
+            <div >And then died in {artist.yearDied}</div>
+            <div >They lived in {artist.live}</div>
+            <div >They were best know for their painting named {artist.knownFor}</div>
+            <div >Art Period: {artist.artPeriod}</div>
+
+        </div>
+        
         <img src={artist.imageUrl} className="artist-image" />
     </div>
 }

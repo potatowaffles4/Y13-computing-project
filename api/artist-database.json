@@ -27,11 +27,11 @@
         "fName": "Vincent",
         "lName": "Van Gogh",
         "yearBorn": "1853-03-30",
-        "whereBorn": "Netherlands",
+        "whereBorn": "The Netherlands",
         "live": "France",
         "knownFor": "Starry Night",
         "yearDied": "1890-07-29",
-        "artPeriod": "PImpressionism",
+        "artPeriod": "Impressionism",
         "imageUrl": "https://www.vangoghmuseum.nl/assets/f9a7a187-484e-4821-b84a-79c836109029?w=1280&h=720&c=12f8ae08a908d9261f58a6bb1bfaa67e8daf061b56752678819c8c241a881bbe",
         "id": "08d34b5a-4f69-4f78-9da0-0f47b1c65941"
     },
